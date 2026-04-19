@@ -1,3 +1,4 @@
+let mode = 1; // eliwood: 0   hector: 1
 const characters = [
   "eliwood",
   "hector",
@@ -16,7 +17,7 @@ const characters = [
   "lucius",
   "matthew",
   "rebecca",
-  "bartre",
+  "bartre/karla",
   "guy",
   "priscilla",
   "raven",
@@ -39,8 +40,12 @@ const characters = [
   "jaffar",
   "vaida",
 ]
-const hectorExclusive = ["farina", "karla"]
-const picked = characters.splice(0, 1)
+// will combine karla with bartre
+if (mode == 1) { // add farina in hector mode (karla is combined with bartre)
+  characters.push("farina");
+}
+console.log(characters.toString())
+const picked = characters.splice(mode, 1)
 for (let i = 1; i < 15; i++) {
   let index = Math.floor(Math.random() * characters.length)
   let pick = characters.splice(index, 1)[0]
